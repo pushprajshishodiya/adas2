@@ -65,14 +65,14 @@
             android:layout_marginBottom="3dp"/>
 
         <ProgressBar
-            android:id="@+id/progressLeft"
-            style="?android:attr/progressBarStyleVertical"
-            android:layout_width="16dp"
-            android:layout_height="130dp"
-            android:progress="100"
-            android:rotation="180"
-            android:progressTint="#00E676"
-            android:progressBackgroundTint="#263238"/>
+    android:id="@+id/progressLeft"
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="130dp"
+    android:layout_height="16dp"
+    android:rotation="270"
+    android:progress="100"
+    android:progressTint="#00E676"
+    android:progressBackgroundTint="#263238"/>
 
         <TextView
             android:id="@+id/tvLeftPct"
@@ -118,15 +118,15 @@
             android:fontFamily="monospace"
             android:layout_marginBottom="3dp"/>
 
-        <ProgressBar
-            android:id="@+id/progressRight"
-            style="?android:attr/progressBarStyleVertical"
-            android:layout_width="16dp"
-            android:layout_height="130dp"
-            android:progress="100"
-            android:rotation="180"
-            android:progressTint="#00E676"
-            android:progressBackgroundTint="#263238"/>
+       <ProgressBar
+    android:id="@+id/progressRight"
+    style="?android:attr/progressBarStyleHorizontal"
+    android:layout_width="130dp"
+    android:layout_height="16dp"
+    android:rotation="270"
+    android:progress="100"
+    android:progressTint="#00E676"
+    android:progressBackgroundTint="#263238"/>
 
         <TextView
             android:id="@+id/tvRightPct"
