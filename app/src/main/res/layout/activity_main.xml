@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0E14">
+
+    <!-- Logo / Icon -->
+    <TextView
+        android:id="@+id/tvAppIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="◈"
+        android:textSize="80sp"
+        android:textColor="#00E5FF"
+        app:layout_constraintBottom_toTopOf="@id/tvAppName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADAS"
+        android:textSize="52sp"
+        android:textColor="#FFFFFF"
+        android:letterSpacing="0.3"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tvSubtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAppIcon"/>
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Advanced Driver Assistance System"
+        android:textSize="14sp"
+        android:textColor="#78909C"
+        android:letterSpacing="0.15"
+        app:layout_constraintBottom_toTopOf="@id/tvFeatures"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAppName"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- Feature badges -->
+    <LinearLayout
+        android:id="@+id/tvFeatures"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toTopOf="@id/btnStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="📷  Dual camera — front &amp; rear"
+            android:textColor="#B0BEC5" android:textSize="15sp" android:layout_marginBottom="10dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="🚗  Vehicle detection &amp; tracking"
+            android:textColor="#B0BEC5" android:textSize="15sp" android:layout_marginBottom="10dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="⚡  Relative speed estimation"
+            android:textColor="#B0BEC5" android:textSize="15sp" android:layout_marginBottom="10dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="📏  Distance measurement"
+            android:textColor="#B0BEC5" android:textSize="15sp" android:layout_marginBottom="10dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="↔  Side lane space analysis"
+            android:textColor="#B0BEC5" android:textSize="15sp"/>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStart"
+        android:layout_width="220dp"
+        android:layout_height="56dp"
+        android:text="START ADAS"
+        android:textSize="16sp"
+        android:letterSpacing="0.15"
+        android:textColor="#0A0E14"
+        app:backgroundTint="#00E5FF"
+        app:cornerRadius="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="80dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

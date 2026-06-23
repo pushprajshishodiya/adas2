@@ -1,0 +1,4 @@
+-keep class org.tensorflow.** { *; }
+-keep class com.adas.app.detection.** { *; }
+-keepclassmembers class * extends androidx.lifecycle.ViewModel { *; }
+-keep class com.google.android.gms.location.** { *; }

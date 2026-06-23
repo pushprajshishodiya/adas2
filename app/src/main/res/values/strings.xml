@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ADAS</string>
+    <string name="start_adas">Start ADAS</string>
+    <string name="permission_required">Camera and Location permissions are required</string>
+    <string name="front_camera">Front Camera</string>
+    <string name="rear_camera">Rear Camera</string>
+    <string name="adas_active">ADAS Active</string>
+    <string name="monitoring">Monitoring road ahead and behind</string>
+</resources>

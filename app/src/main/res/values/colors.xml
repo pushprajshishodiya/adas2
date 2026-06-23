@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="adas_bg">#0A0E14</color>
+    <color name="adas_accent">#00E5FF</color>
+    <color name="adas_safe">#00E676</color>
+    <color name="adas_caution">#FFD600</color>
+    <color name="adas_warning">#FF6D00</color>
+    <color name="adas_danger">#FF1744</color>
+    <color name="adas_text_primary">#FFFFFF</color>
+    <color name="adas_text_secondary">#B0BEC5</color>
+    <color name="adas_surface">#0D1117</color>
+    <color name="adas_surface_variant">#161B22</color>
+</resources>

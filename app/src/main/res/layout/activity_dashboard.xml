@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MAIN CAMERA PREVIEW (back lens = road ahead)
+    ════════════════════════════════════════════════════════════════ -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewFront"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scaleType="fillCenter"/>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         ADAS OVERLAY (bounding boxes, HUD drawn via custom view)
+    ════════════════════════════════════════════════════════════════ -->
+    <com.adas.app.overlay.AdasOverlayView
+        android:id="@+id/adasOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         TOP WARNING BANNER
+    ════════════════════════════════════════════════════════════════ -->
+    <TextView
+        android:id="@+id/tvWarningBanner"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:letterSpacing="0.08"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         LEFT SIDE SPACE BAR
+    ════════════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/layoutLeft"
+        android:layout_width="38dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="L"
+            android:textColor="#78909C"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="3dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressLeft"
+            style="?android:attr/progressBarStyleVertical"
+            android:layout_width="16dp"
+            android:layout_height="130dp"
+            android:progress="100"
+            android:rotation="180"
+            android:progressTint="#00E676"
+            android:progressBackgroundTint="#263238"/>
+
+        <TextView
+            android:id="@+id/tvLeftPct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100%"
+            android:textColor="#00E5FF"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:layout_marginTop="3dp"/>
+
+        <TextView
+            android:id="@+id/tvLeftDist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="—"
+            android:textColor="#546E7A"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         RIGHT SIDE SPACE BAR
+    ════════════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/layoutRight"
+        android:layout_width="38dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R"
+            android:textColor="#78909C"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="3dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressRight"
+            style="?android:attr/progressBarStyleVertical"
+            android:layout_width="16dp"
+            android:layout_height="130dp"
+            android:progress="100"
+            android:rotation="180"
+            android:progressTint="#00E676"
+            android:progressBackgroundTint="#263238"/>
+
+        <TextView
+            android:id="@+id/tvRightPct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100%"
+            android:textColor="#00E5FF"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:layout_marginTop="3dp"/>
+
+        <TextView
+            android:id="@+id/tvRightDist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="—"
+            android:textColor="#546E7A"
+            android:textSize="10sp"
+            android:fontFamily="monospace"
+            android:layout_marginTop="2dp"/>
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         BOTTOM HUD STRIP
+    ════════════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/bottomHud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#CC0A0E14"
+        android:paddingTop="10dp"
+        android:paddingBottom="14dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- FRONT card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardFront"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="#CC00C853"
+            app:cardElevation="0dp"
+            android:layout_marginEnd="6dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="▲ FRONT" android:textColor="#FFFFFF" android:textSize="10sp"
+                    android:fontFamily="monospace" android:letterSpacing="0.1"/>
+                <TextView android:id="@+id/tvFrontLabel"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="CLEAR" android:textColor="#FFFFFF" android:textSize="13sp"
+                    android:textStyle="bold" android:fontFamily="monospace"/>
+                <TextView android:id="@+id/tvFrontDist"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="— m" android:textColor="#FFFFFFCC" android:textSize="18sp"
+                    android:textStyle="bold" android:fontFamily="monospace"/>
+                <TextView android:id="@+id/tvFrontSpeed"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="—" android:textColor="#FFFFFFAA" android:textSize="11sp"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- EGO SPEED center -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvEgoSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="52sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="-4dp"/>
+            <TextView
+                android:id="@+id/tvSpeedUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="km/h"
+                android:textColor="#00E5FF"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.1"/>
+        </LinearLayout>
+
+        <!-- REAR card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardRear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="#CC00C853"
+            app:cardElevation="0dp"
+            android:layout_marginStart="6dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="▼ REAR" android:textColor="#FFFFFF" android:textSize="10sp"
+                    android:fontFamily="monospace" android:letterSpacing="0.1"/>
+                <TextView android:id="@+id/tvRearLabel"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="CLEAR" android:textColor="#FFFFFF" android:textSize="13sp"
+                    android:textStyle="bold" android:fontFamily="monospace"/>
+                <TextView android:id="@+id/tvRearDist"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="— m" android:textColor="#FFFFFFCC" android:textSize="18sp"
+                    android:textStyle="bold" android:fontFamily="monospace"/>
+                <TextView android:id="@+id/tvRearSpeed"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="—" android:textColor="#FFFFFFAA" android:textSize="11sp"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PIP: REAR CAMERA (front lens) — top-right corner
+    ════════════════════════════════════════════════════════════════ -->
+    <FrameLayout
+        android:id="@+id/pipContainer"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewRear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:scaleType="fillCenter"/>
+
+        <!-- Border -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/pip_border"/>
+
+        <TextView
+            android:id="@+id/tvRearCamLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#99000000"
+            android:text="REAR CAM"
+            android:textColor="#00E5FF"
+            android:textSize="9sp"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:padding="3dp"/>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
